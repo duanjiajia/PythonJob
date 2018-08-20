@@ -71,6 +71,8 @@ class WebAdmin():
 
 
 
+
+
     def AddCourse(self,coursename,coursedels,coursenum):
         self.driver.find_element_by_css_selector('ul.nav a[ui-sref=course]').click()
         self.driver.find_element_by_css_selector("button[ng-click='showAddOne=true']").click()
