@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.4 (Python 3.6.5 on win32)" generated="20180820 16:56:49.823">
+<suite id="s1" name="Tc" source="E:\RF\Pythontask\tc">
+<suite id="s1-s1" name="Web" source="E:\RF\Pythontask\tc\web">
+<kw name="Open Browser" library="WebAdmin" type="setup">
+<status status="PASS" starttime="20180820 16:56:49.932" endtime="20180820 16:56:55.300"></status>
+</kw>
+<suite id="s1-s1-s1" name="管理员" source="E:\RF\Pythontask\tc\web\管理员">
+<kw name="Login" library="WebAdmin" type="setup">
+<status status="PASS" starttime="20180820 16:56:55.305" endtime="20180820 16:56:56.296"></status>
+</kw>
+<suite id="s1-s1-s1-s1" name="添加培训班" source="E:\RF\Pythontask\tc\web\管理员\添加培训班">
+<suite id="s1-s1-s1-s1-s1" name="添加培训班" source="E:\RF\Pythontask\tc\web\管理员\添加培训班\添加培训班.robot">
+<test id="s1-s1-s1-s1-s1-t1" name="添加培训班 001：">
+<kw name="Run Keywords" library="BuiltIn" type="setup">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>ClearAllclass</arg>
+<arg>AND</arg>
+<arg>ClearAllcourse</arg>
+<arg>AND</arg>
+<arg>AddCourse</arg>
+<arg>初中语文</arg>
+<arg>这是语文</arg>
+<arg>1</arg>
+<arg>AND</arg>
+<arg>AddCourse</arg>
+<arg>初中数学</arg>
+<arg>这是数学</arg>
+<arg>2</arg>
+</arguments>
+<kw name="Clear Allclass" library="WebAdmin">
+<status status="PASS" starttime="20180820 16:56:56.374" endtime="20180820 16:56:58.844"></status>
+</kw>
+<kw name="Clear Allcourse" library="WebAdmin">
+<status status="PASS" starttime="20180820 16:56:58.844" endtime="20180820 16:57:01.933"></status>
+</kw>
+<kw name="Add Course" library="WebAdmin">
+<arguments>
+<arg>初中语文</arg>
+<arg>这是语文</arg>
+<arg>1</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:57:01.933" endtime="20180820 16:57:03.279"></status>
+</kw>
+<kw name="Add Course" library="WebAdmin">
+<arguments>
+<arg>初中数学</arg>
+<arg>这是数学</arg>
+<arg>2</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:57:03.279" endtime="20180820 16:57:04.529"></status>
+</kw>
+<status status="PASS" starttime="20180820 16:56:56.373" endtime="20180820 16:57:04.529"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>初中语文</arg>
+<arg>初中数学</arg>
+</arguments>
+<assign>
+<var>${Lesson}</var>
+</assign>
+<msg timestamp="20180820 16:57:04.530" level="INFO">${Lesson} = ['初中语文', '初中数学']</msg>
+<status status="PASS" starttime="20180820 16:57:04.530" endtime="20180820 16:57:04.530"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>初中语文</arg>
+</arguments>
+<assign>
+<var>${Lesson2}</var>
+</assign>
+<msg timestamp="20180820 16:57:04.531" level="INFO">${Lesson2} = ['初中语文']</msg>
+<status status="PASS" starttime="20180820 16:57:04.531" endtime="20180820 16:57:04.532"></status>
+</kw>
+<kw name="Add Class" library="WebAdmin">
+<arguments>
+<arg>初中班</arg>
+<arg>这是初中班</arg>
+<arg>1</arg>
+<arg>${Lesson}</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:57:04.532" endtime="20180820 16:57:05.315"></status>
+</kw>
+<kw name="Add Class" library="WebAdmin">
+<arguments>
+<arg>小学</arg>
+<arg>这是初中班</arg>
+<arg>1</arg>
+<arg>${Lesson2}</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:57:05.315" endtime="20180820 16:57:05.708"></status>
+</kw>
+<kw name="Getclasslist" library="WebAdmin">
+<assign>
+<var>${classlists}</var>
+</assign>
+<msg timestamp="20180820 16:57:05.799" level="INFO">${classlists} = ['初中班', '小学']</msg>
+<status status="PASS" starttime="20180820 16:57:05.709" endtime="20180820 16:57:05.799"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${classlists}</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:57:05.800" endtime="20180820 16:57:05.801"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20180820 16:57:06.802" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20180820 16:57:05.802" endtime="20180820 16:57:06.802"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${classlists} == ['初中班','小学']</arg>
+</arguments>
+<status status="PASS" starttime="20180820 16:57:06.803" endtime="20180820 16:57:06.804"></status>
+</kw>
+<kw name="Run Keywords" library="BuiltIn" type="teardown">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>ClearAllclass</arg>
+<arg>AND</arg>
+<arg>ClearAllcourse</arg>
+</arguments>
+<kw name="Clear Allclass" library="WebAdmin">
+<status status="PASS" starttime="20180820 16:57:06.807" endtime="20180820 16:57:11.679"></status>
+</kw>
+<kw name="Clear Allcourse" library="WebAdmin">
+<status status="PASS" starttime="20180820 16:57:11.680" endtime="20180820 16:57:17.443"></status>
+</kw>
+<status status="PASS" starttime="20180820 16:57:06.807" endtime="20180820 16:57:17.443"></status>
+</kw>
+<status status="PASS" starttime="20180820 16:56:56.372" endtime="20180820 16:57:17.444" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20180820 16:56:56.299" endtime="20180820 16:57:17.447"></status>
+</suite>
+<status status="PASS" starttime="20180820 16:56:56.296" endtime="20180820 16:57:17.453"></status>
+</suite>
+<status status="PASS" starttime="20180820 16:56:55.300" endtime="20180820 16:57:17.457"></status>
+</suite>
+<kw name="Closebrowser" library="WebAdmin" type="teardown">
+<status status="PASS" starttime="20180820 16:57:17.460" endtime="20180820 16:57:20.513"></status>
+</kw>
+<status status="PASS" starttime="20180820 16:56:49.850" endtime="20180820 16:57:20.513"></status>
+</suite>
+<status status="PASS" starttime="20180820 16:56:49.826" endtime="20180820 16:57:20.517"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Tc">Tc</stat>
+<stat pass="1" fail="0" id="s1-s1" name="Web">Tc.Web</stat>
+<stat pass="1" fail="0" id="s1-s1-s1" name="管理员">Tc.Web.管理员</stat>
+<stat pass="1" fail="0" id="s1-s1-s1-s1" name="添加培训班">Tc.Web.管理员.添加培训班</stat>
+<stat pass="1" fail="0" id="s1-s1-s1-s1-s1" name="添加培训班">Tc.Web.管理员.添加培训班.添加培训班</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
